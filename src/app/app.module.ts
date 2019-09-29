@@ -36,6 +36,7 @@ import { ProductCartComponent } from './product-cart/product-cart.component';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './shipping-form/shipping-form.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ShippingFormComponent } from './shipping-form/shipping-form.component';
     ProductCartComponent,
     ProductQuantityComponent,
     ShoppingCartSummaryComponent,
-    ShippingFormComponent
+    ShippingFormComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -80,6 +82,10 @@ import { ShippingFormComponent } from './shipping-form/shipping-form.component';
       }, {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
       },
 
       // Access for Registered Users

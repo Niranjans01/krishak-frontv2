@@ -31,21 +31,43 @@ export class ProductsComponent implements OnInit {
   }
 
   private populateProducts() {
+
+    // this.productService.getAll()
+    //   .switchMap(products => {
+    //     this.products = products;
+    //     return this.route.queryParamMap;
+    //   })
+    //   .subscribe(params => {
+    //     this.category = params.get('category');
+    //     this.applyFilter();
+    //   });
     this.productService.getAll()
-    .switchMap(products => {
-      this.products = products;
-      console.log(this.products)
-      return this.route.queryParamMap;
-    })
-    .subscribe(params => {
-      this.category = params.get('category');
-      this.applyFilter();
-    });
+      .switchMap(products => {
+        this.products = products;
+        return this.route.queryParamMap;
+      })
+      .subscribe(params => {
+        this.category = params.get('category');
+        this.applyFilter();
+      });
+
+
   }
 
   private applyFilter() {
     this.filteredProducts = (this.category) ?
-    this.products.filter(p => p.category === this.category) :
-    this.products;
+      this.products.filter(p => p.category === this.category) :
+      this.products;
+  }
+
+  private getMy() {
+    const obj = [{
+      category: "seasonings",
+      imageUrl: "http://www.publicdomainpictures.net/pictures/170000/velka/spinach-leaves-1461774375kTU.jpg",
+      price: "1010101.22",
+      title: "Spinach"
+    }];
+    obj.forEach((ok) => console.log(ok))
+    return obj;
   }
 }

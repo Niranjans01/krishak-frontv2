@@ -86,6 +86,12 @@ import { RegisterComponent } from './register/register.component';
       {
         path: 'register',
         component: RegisterComponent
+      }, {
+        path: 'admin',
+        component: AdminProductsComponent,
+      }, {
+        path: 'admin/products/new',
+        component: ProductFormComponent,
       },
 
       // Access for Registered Users
@@ -101,7 +107,7 @@ import { RegisterComponent } from './register/register.component';
         path: 'my/orders',
         component: MyOrdersComponent,
         canActivate: [AuthGuardService]
-      },
+      }
 
     ])
   ],

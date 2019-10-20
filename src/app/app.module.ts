@@ -1,6 +1,5 @@
 import { OrderService } from './services/order/order.service';
 import { ShoppingCartService } from './services/shopping-cart/shopping-cart.service';
-import { CanActivate } from '@angular/router/src/interfaces';
 import { UserService } from './services/user/user.service';
 import { AuthService } from './services/auth/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,9 +9,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
 import { DataTableModule } from 'angular-4-data-table';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
@@ -27,7 +26,6 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './services/auth-guard/auth-guard.service';
-import { AdminAuthGuardService } from './services/admin-auth-guard/admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './services/category/category.service';
 import { ProductService } from './services/product/product.service';
@@ -57,11 +55,12 @@ import { RegisterComponent } from './register/register.component';
     ProductQuantityComponent,
     ShoppingCartSummaryComponent,
     ShippingFormComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     CustomFormsModule,
     DataTableModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -86,6 +85,12 @@ import { RegisterComponent } from './register/register.component';
       {
         path: 'register',
         component: RegisterComponent
+      }, {
+        path: 'admin',
+        component: AdminProductsComponent,
+      }, {
+        path: 'admin/products/new',
+        component: ProductFormComponent,
       },
 
       // Access for Registered Users
@@ -101,7 +106,7 @@ import { RegisterComponent } from './register/register.component';
         path: 'my/orders',
         component: MyOrdersComponent,
         canActivate: [AuthGuardService]
-      },
+      }
 
     ])
   ],

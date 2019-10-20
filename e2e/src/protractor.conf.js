@@ -9,7 +9,7 @@ const { SpecReporter } = require('jasmine-spec-reporter');
  */
 exports.config = {
     allScriptsTimeout: 11000,
-    specs: ['./e2e/src/features/**/*.feature'],
+    specs: ['./src/features/**/*.feature'],
     capabilities: {
         'browserName': 'chrome'
     },
@@ -18,7 +18,7 @@ exports.config = {
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
-        require: ['.e2e/src/steps/**/*.steps.ts'],
+        require: ['./src/steps/**/*.steps.ts'],
     },
 
     onPrepare() {

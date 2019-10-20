@@ -2,11 +2,8 @@ import { browser, by, element } from 'protractor';
 
 export class LoginPage {
 
-    login = browser.baseUrl + 'login';
-    // navigateTo() {
-    //   return browser.get(browser.baseUrl) as Promise<any>;
-    // }
-  
+    login = browser.baseUrl + '/login';
+    
     navigateTo() {
       return browser.get(this.login);
     }

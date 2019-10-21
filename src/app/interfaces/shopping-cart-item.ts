@@ -8,7 +8,7 @@ export class ShoppingCartItem {
   quantity: number;
 
   constructor(init?: Partial<ShoppingCartItem>) {
-    Object.assign(this, init);
+    (<any>Object).assign(this, init);
 
   }
 
